@@ -51,8 +51,6 @@ Config = {
     SharedEmotesEnabled = true,
     -- If you have the SQL imported enable this to turn on keybinding.
     SqlKeybinding = false,
-    -- If you don't like gta notifications, you can disable them here to have messages in the chat.
-    NotificationsAsChatMessage = false,
     -- Used for few framework dependent things. Accepted values: "qb-core", false
     Framework = 'qb-core',
     -- You can disable the Adult Emotes here.
@@ -69,7 +67,7 @@ Config = {
     PointingKeybindEnabled = true,
     PointingKeybind = 'B', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     -- If crouching should be enabled.
-    CrouchEnabled = true,
+    CrouchEnabled = false,
     CrouchKeybindEnabled = true, -- If true, crouching will use keybinds.
     CrouchKeybind = 'lcontrol', -- The default crouch keybind, get the button string here: https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     CrouchOverride = false, -- If true, you won't enter stealth mode even if the crouch key and the "duck" key are the same.

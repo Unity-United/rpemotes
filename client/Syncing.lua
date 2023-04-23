@@ -211,13 +211,7 @@ function NearbysOnCommand(source, args, raw)
 end
 
 function SimpleNotify(message)
-    if Config.NotificationsAsChatMessage then
-        TriggerEvent("chat:addMessage", { color = { 255, 255, 255 }, args = { tostring(message) } })
-    else
-        BeginTextCommandThefeedPost("STRING")
-        AddTextComponentSubstringPlayerName(message)
-        EndTextCommandThefeedPostTicker(0, 1)
-    end
+    TriggerEvent('QBCore:Notify', message)
 end
 
 function GetClosestPlayer()

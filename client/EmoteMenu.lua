@@ -31,13 +31,7 @@ mainMenu = NativeUI.CreateMenu(Config.MenuTitle or "", "", menuPosition["x"], me
 _menuPool:Add(mainMenu)
 
 function ShowNotification(text)
-    if Config.NotificationsAsChatMessage then
-        TriggerEvent("chat:addMessage", { color = { 255, 255, 255 }, args = { tostring(text) } })
-    else
-        BeginTextCommandThefeedPost("STRING")
-        AddTextComponentSubstringPlayerName(text)
-        EndTextCommandThefeedPostTicker(false, false)
-    end
+    TriggerEvent('QBCore:Notify', text)
 end
 
 local EmoteTable = {}
