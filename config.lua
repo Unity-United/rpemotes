@@ -54,7 +54,7 @@ Config = {
     -- If you don't like gta notifications, you can disable them here to have messages in the chat.
     NotificationsAsChatMessage = false,
     -- Used for few framework dependent things. Accepted values: "qb-core", false
-    Framework = false,
+    Framework = 'qb-core',
     -- You can disable the Adult Emotes here.
     AdultEmotesDisabled = false,
     -- You can disable the Animal Emotes here.
