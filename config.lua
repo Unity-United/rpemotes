@@ -1,5 +1,6 @@
 --- Maintained by TayMcKenzieNZ for the community ---
 --- Leakers and resellers are the absolute scum of the earth ---
+--- RPEMOTES IS AND ALWAYS WILL BE FREE. STOP PAYING FOR LEAKS!!! ---
 
 Config = {
     -- Change the language of the menu here!.
@@ -60,8 +61,9 @@ Config = {
     -- Used to enable or disable the search feature in the menu.
     Search = true,
     -- You can disable the handsup here / change the keybind. It is currently set to Y
-    HandsupKeybindEnabled = false,
     HandsupKeybind = 'Y', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
+    HandsupKeybindEnabled = false,
+    HandsupKeybindInCarEnabled = false,
     -- You can disable the fingrer pointing here / change the keybind. It is currently set to B
     PointingEnabled = false,
     PointingKeybindEnabled = true,
@@ -75,6 +77,10 @@ Config = {
     CrawlEnabled = true,
     CrawlKeybindEnabled = true, -- If true, crawling will use keybinds.
     CrawlKeybind = 'rcontrol', -- The default crawl keybind, get the button string here: https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
+    -- If turned on, playing an emote will cancel the previous one.
+    CancelPreviousEmote = false,
+    -- If turned off, opening the menu and playing an emote will not be possible while swimming
+    AllowInWater = true,
     -- Check for updates
 	CheckForUpdates = true,
 }

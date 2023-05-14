@@ -439,7 +439,7 @@ function AddWalkMenu(menu)
         if item ~= walkreset then
             WalkMenuStart(WalkTable[index])
         else
-            ResetPedMovementClipset(PlayerPedId())
+            ResetWalk()
             DeleteResourceKvp("walkstyle")
         end
     end
@@ -549,6 +549,24 @@ function AddInfoMenu(menu)
 end
 
 function OpenEmoteMenu()
+    if IsEntityDead(PlayerPedId()) then
+        -- show in chat
+        TriggerEvent('chat:addMessage', {
+            color = {255, 0, 0},
+            multiline = true,
+            args = {"RPEmotes", Config.Languages[lang]['dead']}
+        })
+        return
+    end
+    if (IsPedSwimming(PlayerPedId()) or IsPedSwimmingUnderWater(PlayerPedId())) and not Config.AllowInWater then
+        -- show in chat
+        TriggerEvent('chat:addMessage', {
+            color = {255, 0, 0},
+            multiline = true,
+            args = {"RPEmotes", Config.Languages[lang]['swimming']}
+        })
+        return
+    end
     if _menuPool:IsAnyMenuOpen() then
         _menuPool:CloseAllMenus()
     else
@@ -594,4 +612,22 @@ end)
 RegisterNetEvent("rp:RecieveMenu") -- For opening the emote menu from another resource.
 AddEventHandler("rp:RecieveMenu", function()
     OpenEmoteMenu()
+end)
+
+
+-- While ped is dead, don't show menus
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(500)
+        if IsEntityDead(PlayerPedId()) then
+            _menuPool:CloseAllMenus()
+        end
+        if (IsPedSwimming(PlayerPedId()) or IsPedSwimmingUnderWater(PlayerPedId())) and not Config.AllowInWater then
+            -- cancel emote, destroy props and close menu
+            if IsInAnimation then
+                EmoteCancel()
+            end
+            _menuPool:CloseAllMenus()
+        end
+    end
 end)
