@@ -60,6 +60,8 @@ RpEmotes is a community driven FiveM emote menu allowing players to express them
 
 * Hungarian 🇭🇺
 
+* Indonesian 🇮🇩
+
 * Italian 🇮🇹
 
 * Norwegian 🇳🇴
@@ -148,7 +150,9 @@ exports["rpemotes"]:IsPlayerCrawling()
 exports["rpemotes"]:IsPlayerPointing()
 exports["rpemotes"]:IsPlayerInAnim()
 exports["rpemotes"]:toggleWalkstyle(bool, message)
--- bool to allow or not / message to show the user (optional, default is :"You are unable to change your walking style right now.")
+exports["rpemotes"]:toggleBinoculars()
+exports["rpemotes"]:toggleNewscam()
+-- bool to allow the user to change their walkstyle in the menu or not / message to show the user (optional, default is :"You are unable to change your walking style right now.")"
 ```
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -183,6 +187,14 @@ If you do not want to use the SQL features keep the `oxmysql` region in fxmanife
 Alternatively, you can use the keybind command that comes with FiveM without having to use SQL, by entering the following into F8:
 
 `bind keyboard "Yourbutton" "e youremote"`. To remove the keybind, type `"unbind keyboard "Yourbutton"`.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Increments 
+
+Pressing 'LEFT ALT' on the keyboard allows players to scroll through the menu one by one, or by 10.
+
+Alternatively, players can use the `SHARE` button on an Xbox controller or `OPTIONS` button on a Playstation controller.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -543,6 +555,10 @@ A huge thank you to the following people for their amazing contributions made to
 
 - Thank you to [AvaN0x](https://github.com/AvaN0x) for reformatting and assisting with code, additional features and figuring out shared particle effects
 
+- Thank you to [Mads](https://github.com/MadsLeander) for joining the team as Co-Developer 
+
+- Thank you to [Mathu_lmn](https://github.com/Mathu-lmn) for joining the team as Co-Developer 
+
 - Thank you to [Tigerle](https://forum.cfx.re/u/tigerle_studios) for providing the additional code required to make Shared Emotes work to it's full extent
 
 - Thank you to [SMGMissy](https://forum.cfx.re/u/smgmissy/) for assisting with custom pride flags and how to stream them
@@ -588,8 +604,6 @@ A huge thank you to the following people for their amazing contributions made to
 - Thanks to [EnchantedBrownie](https://www.gta5-mods.com/users/EnchantedBrownie) for the custom animations
 
 - Thanks to [Copofiscool](https://forum.cfx.re/u/copofiscool/) for adding a toggle to the Favorite Keybinds
-
-- Thank you to [Mads](https://github.com/MadsLeander) for joining the team as Co-Developer 
 
 - Thank you to [iSentrie](https://forum.cfx.re/u/isentrie/) for additional code, support and joining the RPEmotes project 
 
