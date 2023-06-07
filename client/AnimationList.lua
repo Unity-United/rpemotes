@@ -8143,6 +8143,15 @@ RP.Emotes = {
             EmoteMoving = true
         }
     },
+    ["pockets"] = { -- Custom Emote By Dark Animations
+        "hoodie_hands@dad",
+        "hoodie_hands_clip",
+        "Hands in pockets (Hoodie)",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["posecutef"] = { -- Custom Emote By Pupppy
         "pupppy@freepose01",
         "freepose01",
@@ -9279,7 +9288,7 @@ RP.Emotes = {
     },
 }
 
---- EMOTES WITH 1 OR 2 PROPS ---
+--- PROP EMOTES GO HERE. CURRENTLY SUPPORTS UP TO 2 PROPS  ---
 RP.PropEmotes = {
     ["umbrella"] = {
         "amb@world_human_drinking@coffee@male@base",
@@ -11539,17 +11548,55 @@ RP.PropEmotes = {
     ["frappe2"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "Frappe 2 ",
+        "Frappe 2",
         AnimationOptions = {
-            Prop = 'starbuckscup',
+            Prop = 'beanmachine_cup',
             PropBone = 28422,
             PropPlacement = {
-               -0.0060,
-                0.0150,
-               -0.0780,
+                0.0110,
+                0.0,
+                0.0300,
                 0.0,
                 0.0,
+             -140.0,
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["frappe3"] = {
+        "amb@code_human_wander_drinking@female@base",
+        "static",
+        "Frappe 3",
+        AnimationOptions = {
+            Prop = 'beanmachine_cup2',
+            PropBone = 28422,
+            PropPlacement = {
                 0.0,
+                0.0,
+               -0.0600,
+                0.0,
+                0.0,
+             -178.0,
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["frappe4"] = {
+        "amb@code_human_wander_drinking@female@base",
+        "static",
+        "Frappe 4",
+        AnimationOptions = {
+            Prop = 'beanmachine_cup3',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+               -0.0600,
+                0.0,
+                0.0,
+             -178.0,
             },
             EmoteLoop = true,
             EmoteMoving = true
@@ -20444,6 +20491,82 @@ RP.PropEmotes = {
              -76.6157,
               -9.5838,
                2.9748,
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["basket"] = {
+       "missfbi4prepp1",
+       "idle",
+        "Basket",
+        AnimationOptions = {
+            Prop = 'bzzz_prop_shop_basket_a',
+            PropBone = 57005,
+            PropPlacement = {
+               0.34,
+              -0.25,
+              -0.24,
+             -146.0,
+              115.0,
+               19.0,
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["basket2"] = {
+       "missfbi4prepp1",
+       "idle",
+        "Basket 2",
+        AnimationOptions = {
+            Prop = 'bzzz_prop_shop_basket_b',
+            PropBone = 57005,
+            PropPlacement = {
+               0.34,
+              -0.25,
+              -0.24,
+             -146.0,
+              115.0,
+               19.0,
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["power"] = {
+       "move_weapon@jerrycan@generic",
+       "idle",
+        "Power House",
+        AnimationOptions = {
+            Prop = 'prop_bzzz_elektro_powerhouse001',
+            PropBone = 57005,
+            PropPlacement = {
+               0.11,
+               0.06,
+               0.0,
+               98.0,
+               12.0,
+               -99.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["wlight"] = {
+       "missfbi4prepp1",
+       "idle",
+        "Weed Light",
+        AnimationOptions = {
+            Prop = 'prop_bzzz_drugs_light001',
+            PropBone = 57005,
+            PropPlacement = {
+               0.08,
+               0.18,
+              -0.02,
+             -130.0,
+                0.0,
+              -90.0
             },
             EmoteLoop = true,
             EmoteMoving = true

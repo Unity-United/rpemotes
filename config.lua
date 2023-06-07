@@ -52,6 +52,8 @@ Config = {
     SharedEmotesEnabled = true,
     -- If you have the SQL imported enable this to turn on keybinding.
     SqlKeybinding = false,
+    -- If you don't like gta notifications, you can disable them here to have messages in the chat.
+    NotificationsAsChatMessage = false,
     -- Used for few framework dependent things. Accepted values: "qb-core", false
     Framework = 'qb-core',
     -- You can disable the Adult Emotes here.
@@ -86,6 +88,8 @@ Config = {
     AllowInWater = true,
     -- If set to true, the /binoculars command will be enabled.
     BinocularsEnabled = true,
+    -- If set to true, you'll be able to toggle between different vision modes in the binoculars
+    AllowVisionsToggling = true,
     -- If set to true, the /newscam command will be enabled.
     NewscamEnabled = true,
     -- Check for updates
