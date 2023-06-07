@@ -43,10 +43,6 @@ for i = 1, #emoteTypes do
     end
 end
 
-local function IsPlayerAiming(player)
-    return IsPlayerFreeAiming(player) or IsAimCamActive() or IsAimCamThirdPersonActive()
-end
-
 local function RunAnimationThread()
     local playerId = PlayerId()
     if AnimationThreadStatus then return end
@@ -258,18 +254,6 @@ function EmoteCancel(force)
     AnimationThreadStatus = false
 end
 
-function EmoteChatMessage(msg, multiline)
-    if msg then
-        TriggerEvent("chat:addMessage", { multiline = multiline == true or false, color = { 255, 255, 255 }, args = { "^1Help^0", tostring(msg) } })
-    end
-end
-
-function DebugPrint(args)
-    if Config.DebugDisplay then
-        print(args)
-    end
-end
-
 --#region ptfx
 function PtfxThis(asset)
     while not HasNamedPtfxAssetLoaded(asset) do
@@ -349,24 +333,6 @@ function EmotesOnCommand(source, args, raw)
     end
     EmoteChatMessage(EmotesCommand)
     EmoteChatMessage(Config.Languages[lang]['emotemenucmd'])
-end
-
-function pairsByKeys(t, f)
-    local a = {}
-    for n in pairs(t) do
-        table.insert(a, n)
-    end
-    table.sort(a, f)
-    local i = 0 -- iterator variable
-    local iter = function() -- iterator function
-        i = i + 1
-        if a[i] == nil then
-            return nil
-        else
-            return a[i], t[a[i]]
-        end
-    end
-    return iter
 end
 
 function EmoteMenuStart(args, hard, textureVariation)
@@ -489,41 +455,6 @@ function CheckAnimalAndOnEmotePlay(EmoteName, name)
             end
         end
         EmoteChatMessage(Config.Languages[lang]['notvalidpet'])
-    end
-end
-
-function LoadAnim(dict)
-    if not DoesAnimDictExist(dict) then
-        return false
-    end
-
-    local timeout = 2000
-    while not HasAnimDictLoaded(dict) and timeout > 0 do
-        RequestAnimDict(dict)
-        Wait(5)
-        timeout = timeout - 5
-    end
-    if timeout == 0 then
-        DebugPrint("Loading anim dict " .. dict .. " timed out")
-        return false
-    else
-        return true
-    end
-end
-
-function LoadPropDict(model)
-    -- load the model if it's not loaded and wait until it's loaded or timeout
-    if not HasModelLoaded(joaat(model)) then
-        RequestModel(joaat(model))
-        local timeout = 2000
-        while not HasModelLoaded(joaat(model)) and timeout > 0 do
-            Wait(5)
-            timeout = timeout - 5
-        end
-        if timeout == 0 then
-            DebugPrint("Loading model " .. model .. " timed out")
-            return
-        end
     end
 end
 
@@ -893,15 +824,26 @@ AddEventHandler('CEventOpenDoor', function(entities, eventEntity, args)
     OnEmotePlay(emote, emote.name)
 end)
 
--- Cancelled emote ? NO
+local isBumpingPed = false
+local timeout = 500
+
 AddEventHandler("CEventPlayerCollisionWithPed", function()
     if not IsInAnimation then
         return
     end
 
+    if isBumpingPed then
+        timeout = 500
+        return
+    end
+    isBumpingPed = true
+    timeout = 500
     -- We wait a bit to avoid collision with the ped resetting the animation again
 
-    Wait(500)
+    while timeout > 0 do
+        Wait(100)
+        timeout = timeout - 100
+    end
 
     if not IsInAnimation then
         return
@@ -918,6 +860,7 @@ AddEventHandler("CEventPlayerCollisionWithPed", function()
 
     emote.name = CurrentAnimationName
 
+    isBumpingPed = false
     ClearPedTasks(PlayerPedId())
     DestroyAllProps()
     OnEmotePlay(emote, emote.name)

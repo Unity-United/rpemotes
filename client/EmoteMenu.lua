@@ -30,10 +30,6 @@ _menuPool = NativeUI.CreatePool()
 mainMenu = NativeUI.CreateMenu(Config.MenuTitle or "", "", menuPosition["x"], menuPosition["y"], Menuthing, Menuthing)
 _menuPool:Add(mainMenu)
 
-function ShowNotification(text)
-    TriggerEvent('QBCore:Notify', text)
-end
-
 local EmoteTable = {}
 local FavEmoteTable = {}
 local DanceTable = {}
@@ -573,10 +569,6 @@ function OpenEmoteMenu()
         mainMenu:Visible(true)
         ProcessMenu()
     end
-end
-
-function firstToUpper(str)
-    return (str:gsub("^%l", string.upper))
 end
 
 AddEmoteMenu(mainMenu)
